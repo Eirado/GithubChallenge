@@ -8,17 +8,40 @@
 import SwiftUI
 
 struct HomeView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
+    @StateObject private var viewModel: HomeViewModel
+    
+    init(viewModel: HomeViewModel) {
+           _viewModel = StateObject(wrappedValue: viewModel)
+       }
+       
+       var body: some View {
+           NavigationStack {
+               VStack {
+                   Divider()
+                       .background(.ultraThinMaterial)
+                   Spacer()
+                   TextField("Username", text: $viewModel.username)
+                      
+                       .textFieldStyle(RoundedBorderTextFieldStyle())
+                       .padding()
+                   
+                   Button("Search") {
+                       viewModel.searchUser()
+                   }
+                   .disabled(viewModel.username.isEmpty)
+                   
+                   Spacer()
+               }
+               .navigationTitle("GitHub Viewer")
+               .navigationBarTitleDisplayMode(.inline)
+
+               .alert(isPresented: $viewModel.showError) {
+                   Alert(title: Text("Error"), message: Text(viewModel.errorMessage), dismissButton: .default(Text("OK")))
+               }
+           }
+       }
 }
 
 #Preview {
-    HomeView()
+    HomeView(viewModel: HomeViewModel())
 }
