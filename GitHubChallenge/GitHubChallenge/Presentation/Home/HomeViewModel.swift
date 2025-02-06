@@ -12,7 +12,7 @@ class HomeViewModel: ObservableObject {
     @Published var showError = false
     @Published var errorMessage = ""
 //    private let fetchUserProfileUseCase: FetchUserProfileUseCase
-    
+//    
 //    init(fetchUserProfileUseCase: FetchUserProfileUseCase) {
 //        self.fetchUserProfileUseCase = fetchUserProfileUseCase
 //    }
