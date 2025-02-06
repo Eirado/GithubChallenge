@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct GitHubDetailView: View {
+    let viewModel: GitHubDetailViewModel
     var body: some View {
         ScrollView {
             Rectangle()
@@ -19,5 +20,5 @@ struct GitHubDetailView: View {
 }
 
 #Preview {
-    GitHubDetailView()
+    GitHubDetailView(viewModel: GitHubDetailViewModelFactory.makeGitHubDatailViewModel())
 }
