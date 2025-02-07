@@ -31,7 +31,7 @@ struct HomeView: View {
                     }
                     
                     Button("Search") {
-                        viewModel.searchUser()
+                        viewModel.fetch()
                         isNavigating = true
                     }
                     .disabled(viewModel.username.isEmpty)

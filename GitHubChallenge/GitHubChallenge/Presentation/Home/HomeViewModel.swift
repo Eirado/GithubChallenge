@@ -11,13 +11,23 @@ class HomeViewModel: ObservableObject {
     @Published var username: String = ""
     @Published var showError = false
     @Published var errorMessage = ""
-//    private let fetchUserProfileUseCase: FetchUserProfileUseCase
-//    
-//    init(fetchUserProfileUseCase: FetchUserProfileUseCase) {
-//        self.fetchUserProfileUseCase = fetchUserProfileUseCase
-//    }
+    @Published var GitHubRepos: [GitHubRepo] = []
+    @Published var error: APIError?
     
-    func searchUser() {
-        // Call use case here
+    private let fetchReposUseCase: FetchReposUseCaseProtocol
+    
+    init(fetchReposUseCase: FetchReposUseCaseProtocol) {
+        self.fetchReposUseCase = fetchReposUseCase
+    }
+    
+    func fetch(){
+        Task { @MainActor in
+            do {
+                self.GitHubRepos = try await fetchReposUseCase.executeRepository(userName: "Eirado")
+            } catch {
+                
+            }
+        }
+       
     }
 }

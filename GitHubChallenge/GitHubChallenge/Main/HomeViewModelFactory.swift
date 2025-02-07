@@ -5,12 +5,12 @@
 //  Created by Gabriel Amaral on 06/02/25.
 //
 
-import Foundation
-
-
-
 struct HomeViewModelFactory {
     static func makeHomeViewModel() -> HomeViewModel {
-        return HomeViewModel()
+        
+        let gitHubRepoRepository: GitHubRepoRepositoryProtocol = GitHubRepoRepositoryFactory.makePokemonRepository()
+        let fetchReposUseCase: FetchReposUseCaseProtocol = FetchReposUseCaseFactory.makeFetchReposUseCase(gitHubRepository: gitHubRepoRepository)
+        
+        return HomeViewModel(fetchReposUseCase: fetchReposUseCase)
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct GitHubChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView(viewModel: HomeViewModel())
+            HomeView(viewModel: HomeViewModelFactory.makeHomeViewModel())
         }
     }
 }

@@ -6,12 +6,17 @@
 //
 
 public protocol FetchReposUseCaseProtocol {
-    func executeRepository() async throws -> [GitHubRepository]
+    func executeRepository(userName: String) async throws -> [GitHubRepo]
 }
 
 class FetchReposUseCase: FetchReposUseCaseProtocol {
-  
-    func fetch() async throws -> [GitHubRepository] {
-        <#code#>
+    private let gitHubRepository: GitHubRepoRepository
+    
+    init(gitHubRepository: GitHubRepoRepository) {
+        self.gitHubRepository = gitHubRepository
+    }
+    
+    func executeRepository(userName: String) async throws -> [GitHubRepo] {
+        return try await gitHubRepository.fetch(userName: userName)
     }
 }
