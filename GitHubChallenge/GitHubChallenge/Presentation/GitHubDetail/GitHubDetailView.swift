@@ -7,7 +7,11 @@
 import SwiftUI
 
 struct GitHubDetailView: View {
-    let viewModel: GitHubDetailViewModel
+//    let viewModel: GitHubDetailViewModel
+    let avatarURL: String
+    let userName: String
+    let gitHubRepos: [GitHubRepo]
+    
     @State private var headerHeight: CGFloat = .zero
     @State private var safeArea: EdgeInsets = .init()
     @Environment(\.presentationMode) var presentationMode
@@ -15,10 +19,12 @@ struct GitHubDetailView: View {
         
         ZStack {
             VStack {
-                HeaderView(image: Image("rainbowlake"), viewHeight: headerHeight, safeAreaTop: safeArea.top, userName: "Name")
+                HeaderView(image: Image(avatarURL), viewHeight: headerHeight, safeAreaTop: safeArea.top, userName: userName)
                 List {
-                    
-                }
+                    ForEach(gitHubRepos) { repo in
+                        GitHubDetailListCell(repoName: repo.name, repoProgrammingLanguage: repo.language ?? "")
+                    }
+                }.listStyle(.plain)
             }
             VStack {
                 HStack {
@@ -44,5 +50,5 @@ struct GitHubDetailView: View {
 }
 
 #Preview {
-    GitHubDetailView(viewModel: GitHubDetailViewModelFactory.makeGitHubDatailViewModel())
+    GitHubDetailView(avatarURL: "random", userName: "random", gitHubRepos: [])
 }

@@ -15,14 +15,16 @@ class HomeViewModel: ObservableObject {
     @Published var userName: String = ""
     @Published var avatarURL: String = ""
     @Published var gitHubRepos: [GitHubRepo] = []
-    
+    @Published var isLoading = false
+   
     private let fetchReposUseCase: FetchReposUseCaseProtocol
     
     init(fetchReposUseCase: FetchReposUseCaseProtocol) {
         self.fetchReposUseCase = fetchReposUseCase
     }
     
-    func fetch(){
+    func fetchRepos(){
+        isLoading = true
         Task { @MainActor in
             do {
                 self.gitHubRepos = try await fetchReposUseCase.executeRepository(userName: "Eirado")
@@ -30,6 +32,7 @@ class HomeViewModel: ObservableObject {
             } catch {
                 
             }
+            isLoading = false
         }
     }
     private func retriveUserProfile() throws {

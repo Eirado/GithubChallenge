@@ -16,20 +16,20 @@ struct HomeView: View {
             VStack {
                 Divider()
                     .background(.ultraThinMaterial)
-                
                 Spacer()
                 
                 TextField("Username", text: $viewModel.userName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 
-                NavigationLink(destination: GitHubDetailView(viewModel: GitHubDetailViewModelFactory.makeGitHubDatailViewModel()),
-                    isActive: $isNavigating
+                NavigationLink(destination: GitHubDetailView(avatarURL: viewModel.avatarURL, userName: viewModel.userName, gitHubRepos: viewModel.gitHubRepos),
+                               isActive: $isNavigating
                 ) {
                     EmptyView()
                 }
+               
                 Button("Search") {
-                    viewModel.fetch()
+                    viewModel.fetchRepos()
                     isNavigating.toggle()
                 }
                 .disabled(viewModel.userName.isEmpty)
