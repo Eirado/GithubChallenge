@@ -10,3 +10,4 @@ public struct GitHubRepoRepositoryFactory {
         return GitHubRepoRepository(apiService: apiService)
     }
 }
+
