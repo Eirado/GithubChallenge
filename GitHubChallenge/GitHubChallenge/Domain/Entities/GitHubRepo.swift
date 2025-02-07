@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct GitHubRepo: Codable, Identifiable {
+public struct GitHubRepo: Codable, Identifiable, Hashable {
     public let id: Int
     let name: String
     let owner: GitHubUser

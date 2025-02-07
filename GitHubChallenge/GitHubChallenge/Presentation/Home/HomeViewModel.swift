@@ -16,7 +16,12 @@ class HomeViewModel: ObservableObject {
     @Published var avatarURL: String = ""
     @Published var gitHubRepos: [GitHubRepo] = []
     @Published var isLoading = false
-   
+    
+    @Published var isAlertShowing: Bool = false
+    @Published var alertMessage: String = ""
+    
+    @Published var isFetchFinished: Bool = false
+    
     private let fetchReposUseCase: FetchReposUseCaseProtocol
     private let errorHandler: ErrorHandlerProtocol
     
@@ -26,23 +31,30 @@ class HomeViewModel: ObservableObject {
     }
     
     func fetchRepos(){
-        isLoading = true
         Task { @MainActor in
+            isFetchFinished = false
             do {
                 self.gitHubRepos = try await fetchReposUseCase.executeRepository(userName: userName)
                 try retriveUserProfile()
+                isFetchFinished = true
             } catch {
                 let errorMessage = errorHandler.handle(error: error)
-                print(errorMessage)
+                isFetchFinished = false
+                showAlert(errorMessage: errorMessage)
             }
-            isLoading = false
         }
     }
+    
     private func retriveUserProfile() throws {
         guard let firstRepoOwner = gitHubRepos.first?.owner else {
             throw UserError.UserNotFound
         }
         self.userName = firstRepoOwner.login
         self.avatarURL = firstRepoOwner.avatarURL
+    }
+    
+    func showAlert(errorMessage: String) {
+        isAlertShowing = true
+        alertMessage = errorMessage
     }
 }

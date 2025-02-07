@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct GitHubUser: Codable {
+public struct GitHubUser: Codable, Hashable {
     let login: String
     let avatarURL: String
     

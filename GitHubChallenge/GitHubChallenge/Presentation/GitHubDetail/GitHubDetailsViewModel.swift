@@ -10,11 +10,4 @@ import SwiftUICore
 
 class GitHubDetailsViewModel: ObservableObject {
     
-//    @Published var viewSize: CGSize
-//    @Published var safeAreas: EdgeInsets
-//    
-//    init(viewSize: CGSize, safeArea: EdgeInsets) {
-//        self.viewSize = viewSize
-//        self.safeAreas = safeArea
-//    }
 }

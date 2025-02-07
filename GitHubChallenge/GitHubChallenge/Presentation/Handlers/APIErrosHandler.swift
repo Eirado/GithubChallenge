@@ -24,7 +24,7 @@ class APIErrorHandler: ErrorHandlerProtocol {
             case .serverError:
                 return "Server error. Please try again later."
             case .unknown:
-                return "An unknown error occurred."
+                return "User not found. Please enter another name"
             }
         }
         return "An unexpected error occurred."

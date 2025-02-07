@@ -23,22 +23,26 @@ struct HomeView: View {
                     .padding()
                     
                 NavigationLink(destination: GitHubDetailsView(viewModel: GitHubDetailsViewModelFactory.makeHomeViewModel(), avatarURL: viewModel.avatarURL, userName: viewModel.userName, gitHubRepos: viewModel.gitHubRepos),
-                               isActive: $isNavigating
+                               isActive: $viewModel.isFetchFinished
                 ) {
                     EmptyView()
                 }
-               
-                Button("Search") {
-                    viewModel.fetchRepos()
-                    isNavigating.toggle()
+                if viewModel.isLoading{
+                    ProgressView()
+                } else {
+                    Button("Search") {
+                        viewModel.fetchRepos()
+                    }
+                    .disabled(viewModel.userName.isEmpty)
                 }
-                .disabled(viewModel.userName.isEmpty)
-                
                 Spacer()
             }
             .navigationTitle("GitHub Viewer")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
+            .alert(isPresented: $viewModel.isAlertShowing) {
+                Alert(title: Text("Error"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
+            }
         }
     }
 }
