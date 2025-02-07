@@ -18,7 +18,7 @@ public struct GitHubRepoRepository: GitHubRepoRepositoryProtocol {
     }
 
     public func fetch(userName: String) async throws  -> [GitHubRepo] {
-        let object: [GitHubRepo] =  try await apiService.request(.getGitHubRepos(userName: "Eirado"))
+        let object: [GitHubRepo] =  try await apiService.request(.getGitHubRepos(userName: userName))
         return object
     }
 }

@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct HeaderView: View {
-    var image: AsyncImage<Image>
+    var avatarURL: String
     var headerHeight: Double
     var safeArea: EdgeInsets
     var userName: String
     
-    init(image: AsyncImage<Image>, viewHeight: Double, safeArea: EdgeInsets, userName: String) {
-        self.image = image
+    init(avatarURL: String, viewHeight: Double, safeArea: EdgeInsets, userName: String) {
+        self.avatarURL = avatarURL
         self.headerHeight = viewHeight * 0.3
         self.safeArea = safeArea
         self.userName = userName
@@ -30,17 +30,21 @@ struct HeaderView: View {
                         .stroke(.gray, lineWidth: 1)
                 )
             VStack(spacing: 15){
-                image
-                    .frame(width: headerHeight * 0.8, height: headerHeight * 0.8)
-                    .clipShape(Circle())
+                AsyncImage(url: URL(string: avatarURL)) { phase in
+                    if let image = phase.image {
+                        image.resizable()
+                                .clipShape(Circle())
+                                .frame(width: headerHeight * 0.8, height: headerHeight * 0.8)
+                                .aspectRatio(contentMode: .fit)
+                    }
+                }
                 Text(userName)
             }
             .padding(.top, safeArea.top)
             .padding(.bottom, 10)
         }.frame(height: headerHeight + safeArea.top)
-       
-        
     }
+
 }
 
 

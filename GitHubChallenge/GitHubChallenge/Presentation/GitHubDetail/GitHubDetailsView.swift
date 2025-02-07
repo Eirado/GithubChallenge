@@ -18,7 +18,7 @@ struct GitHubDetailsView: View {
         GeometryReader { geometry in
             ZStack {
                 VStack {
-                    HeaderView(image: AsyncImage(url: URL(string: avatarURL)), viewHeight: geometry.size.height, safeArea: geometry.safeAreaInsets, userName: userName).padding(.zero)
+                    HeaderView(avatarURL: avatarURL, viewHeight: geometry.size.height, safeArea: geometry.safeAreaInsets, userName: userName).padding(.zero)
                     
                     List {
                         ForEach(gitHubRepos) { repo in
@@ -44,5 +44,5 @@ struct GitHubDetailsView: View {
 }
 
 #Preview {
-    GitHubDetailsView(viewModel: GitHubDetailsViewModelFactory.makeHomeViewModel(), avatarURL: "random", userName: "random", gitHubRepos: [GitHubRepo(id: 214124, name: "mockName", owner: GitHubUser(login: "mockUserName", avatarURL: ""), language: "swift"), GitHubRepo(id: 214124, name: "mockName", owner: GitHubUser(login: "mockUserName", avatarURL: ""), language: "swift"), GitHubRepo(id: 214124, name: "mockName", owner: GitHubUser(login: "mockUserName", avatarURL: ""), language: "swift")])
+    GitHubDetailsView(viewModel: GitHubDetailsViewModelFactory.makeHomeViewModel(), avatarURL: "https://avatars.githubusercontent.com/u/111468283?v=4", userName: "random", gitHubRepos: [GitHubRepo(id: 214124, name: "mockName", owner: GitHubUser(login: "mockUserName", avatarURL: ""), language: "swift"), GitHubRepo(id: 214124, name: "mockName", owner: GitHubUser(login: "mockUserName", avatarURL: ""), language: "swift"), GitHubRepo(id: 214124, name: "mockName", owner: GitHubUser(login: "mockUserName", avatarURL: ""), language: "swift")])
 }
