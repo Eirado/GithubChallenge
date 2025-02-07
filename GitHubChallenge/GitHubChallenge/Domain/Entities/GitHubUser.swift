@@ -8,6 +8,6 @@
 import Foundation
 
 struct GitHubUser: Decodable {
-    
-    
+    let userName: String?
+    let avatarUrl: String
 }
