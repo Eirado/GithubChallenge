@@ -5,7 +5,7 @@
 //  Created by Gabriel Amaral on 07/02/25.
 //
 
-public struct APIFactory {
+public struct APIServiceFactory {
     public static func makeAPIService() -> APIServiceProtocol {
         return APIService()
     }

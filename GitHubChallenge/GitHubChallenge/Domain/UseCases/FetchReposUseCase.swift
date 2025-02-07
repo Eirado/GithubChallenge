@@ -10,9 +10,9 @@ public protocol FetchReposUseCaseProtocol {
 }
 
 class FetchReposUseCase: FetchReposUseCaseProtocol {
-    private let gitHubRepository: GitHubRepoRepository
+    private let gitHubRepository: GitHubRepoRepositoryProtocol
     
-    init(gitHubRepository: GitHubRepoRepository) {
+    init(gitHubRepository: GitHubRepoRepositoryProtocol) {
         self.gitHubRepository = gitHubRepository
     }
     
