@@ -8,13 +8,35 @@ import SwiftUI
 
 struct GitHubDetailView: View {
     let viewModel: GitHubDetailViewModel
+    @State private var viewHeight: CGFloat = .zero
+    
+
     var body: some View {
-        ScrollView {
-            Rectangle()
-                .frame(height: 200)
-            CircleImage(image: Image("rainbowlake"))
-                .offset(y: -160)
-                .padding(.bottom, -130)
+        
+        ZStack {
+            VStack {
+                
+                HeaderView(image: Image("rainbowlake"), viewHeight: viewHeight, userName: "Name")
+                CustomBackButton(action: { print("something") })
+                
+                List {
+                    
+                }
+                
+                
+                
+            }
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
+            
+        }.background {
+            GeometryReader { geo in
+                Color.clear
+                    .onAppear{
+                        viewHeight = geo.size.height
+                        
+                    }
+            }.ignoresSafeArea(.all)
         }
     }
 }

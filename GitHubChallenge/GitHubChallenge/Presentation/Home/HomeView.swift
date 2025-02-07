@@ -8,40 +8,51 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject private var viewModel: HomeViewModel
+    @StateObject var viewModel: HomeViewModel
+    @State private var isNavigating = false
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                Divider()
-                    .background(.ultraThinMaterial)
-                Spacer()
-                TextField("Username", text: $viewModel.username)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                
-               
-                NavigationLink {
-                    GitHubDetailView(viewModel: GitHubDetailViewModelFactory.makeGitHubDatailViewModel())
-                } label: {
+            NavigationStack {
+                VStack {
+                    Divider()
+                        .background(.ultraThinMaterial)
+                    
+                    Spacer()
+                    
+                    TextField("Username", text: $viewModel.username)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                    
+                    NavigationLink(
+                        destination: GitHubDetailView(viewModel: GitHubDetailViewModelFactory.makeGitHubDatailViewModel()),
+                        isActive: $isNavigating
+                    ) {
+                        EmptyView()
+                    }
+                    
                     Button("Search") {
                         viewModel.searchUser()
+                        isNavigating = true
                     }
-                }
-//                    .disabled(viewModel.username.isEmpty)
+                    .disabled(viewModel.username.isEmpty)
                     
                     Spacer()
                 }
                 .navigationTitle("GitHub Viewer")
                 .navigationBarTitleDisplayMode(.inline)
+                .navigationBarBackButtonHidden(true)
                 
                 .alert(isPresented: $viewModel.showError) {
-                    Alert(title: Text("Error"), message: Text(viewModel.errorMessage), dismissButton: .default(Text("OK")))
+                    Alert(
+                        title: Text("Error"),
+                        message: Text(viewModel.errorMessage),
+                        dismissButton: .default(Text("OK"))
+                    )
                 }
             }
         }
     }
     
     #Preview {
-        HomeView(viewModel: HomeViewModel())
+        HomeView(viewModel: HomeViewModelFactory.makeHomeViewModel())
     }

@@ -9,7 +9,6 @@ import Foundation
 
 struct GitHubDetailViewModelFactory {
     static func makeGitHubDatailViewModel() ->  GitHubDetailViewModel {
-        
         return GitHubDetailViewModel()
     }
 }
