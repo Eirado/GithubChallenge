@@ -21,7 +21,7 @@ struct HomeView: View {
                 TextField("Username", text: $viewModel.userName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
-                    
+                
                 NavigationLink(destination: GitHubDetailsView(viewModel: GitHubDetailsViewModelFactory.makeHomeViewModel(), avatarURL: viewModel.avatarURL, userName: viewModel.userName, gitHubRepos: viewModel.gitHubRepos),
                                isActive: $viewModel.isFetchFinished
                 ) {
