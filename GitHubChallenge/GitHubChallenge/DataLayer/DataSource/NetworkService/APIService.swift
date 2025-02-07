@@ -39,15 +39,17 @@ class APIService: APIServiceProtocol {
         }
         
         let (data, response) = try await session.customDataTaskPublisher(for: request)
-        print(data, response)
-        
+  
         guard let httpResponse = response as? HTTPURLResponse else {
             throw APIError.unknown
         }
-        
+        print(httpResponse)
         switch httpResponse.statusCode {
         case 200..<300:
-            return try JSONDecoder().decode(T.self, from: data)
+            let decodedData = try JSONDecoder().decode(T.self, from: data)
+            print(decodedData)
+            return decodedData
+            
         case 400:
             throw APIError.badRequest
         case 401:

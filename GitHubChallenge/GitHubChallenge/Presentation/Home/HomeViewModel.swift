@@ -7,12 +7,14 @@
 
 import Foundation
 
+enum UserError: Error {
+    case UserNotFound
+}
+
 class HomeViewModel: ObservableObject {
-    @Published var username: String = ""
-    @Published var showError = false
-    @Published var errorMessage = ""
-    @Published var GitHubRepos: [GitHubRepo] = []
-    @Published var error: APIError?
+    @Published var userName: String = ""
+    @Published var avatarURL: String = ""
+    @Published var gitHubRepos: [GitHubRepo] = []
     
     private let fetchReposUseCase: FetchReposUseCaseProtocol
     
@@ -23,11 +25,18 @@ class HomeViewModel: ObservableObject {
     func fetch(){
         Task { @MainActor in
             do {
-                self.GitHubRepos = try await fetchReposUseCase.executeRepository(userName: "Eirado")
+                self.gitHubRepos = try await fetchReposUseCase.executeRepository(userName: "Eirado")
+                 
+                guard let firstRepoOwner = gitHubRepos.first?.owner else {
+                    throw UserError.UserNotFound
+                }
+                
+                self.userName = firstRepoOwner.login
+                self.avatarURL = firstRepoOwner.avatarURL
+                
             } catch {
                 
             }
         }
-       
     }
 }

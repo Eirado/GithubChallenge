@@ -7,8 +7,8 @@
 
 import Foundation
 
-public struct GitHubRepo: Decodable {
+public struct GitHubRepo: Codable {
     let name: String
-    let programmingLanguage: String?
     let owner: GitHubUser
+    let language: String?
 }

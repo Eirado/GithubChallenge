@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct GitHubUser: Decodable {
-    let userName: String?
-    let avatarUrl: String
+public struct GitHubUser: Codable {
+    let login: String
+    let avatarURL: String
+    
+    enum CodingKeys: String, CodingKey {
+        case login
+        case avatarURL = "avatar_url"
+    }
 }

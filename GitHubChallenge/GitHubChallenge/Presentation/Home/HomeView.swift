@@ -12,43 +12,29 @@ struct HomeView: View {
     @State private var isNavigating = false
     
     var body: some View {
-            NavigationStack {
+        NavigationStack {
                 VStack {
                     Divider()
                         .background(.ultraThinMaterial)
                     
                     Spacer()
                     
-                    TextField("Username", text: $viewModel.username)
+                    TextField("Username", text: $viewModel.userName)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
                     
-                    NavigationLink(
-                        destination: GitHubDetailView(viewModel: GitHubDetailViewModelFactory.makeGitHubDatailViewModel()),
-                        isActive: $isNavigating
-                    ) {
-                        EmptyView()
+                    NavigationLink(value: viewModel.avatarURL) {
+                        Button("Search") {
+                            viewModel.fetch()
+                        }
+                        .disabled(viewModel.userName.isEmpty)
                     }
-                    
-                    Button("Search") {
-                        viewModel.fetch()
-                        isNavigating = true
-                    }
-                    .disabled(viewModel.username.isEmpty)
                     
                     Spacer()
                 }
                 .navigationTitle("GitHub Viewer")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
-                
-                .alert(isPresented: $viewModel.showError) {
-                    Alert(
-                        title: Text("Error"),
-                        message: Text(viewModel.errorMessage),
-                        dismissButton: .default(Text("OK"))
-                    )
-                }
             }
         }
     }
