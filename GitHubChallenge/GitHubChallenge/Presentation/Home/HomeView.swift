@@ -12,33 +12,37 @@ struct HomeView: View {
     @State private var isNavigating = false
     
     var body: some View {
-        NavigationStack {
-                VStack {
-                    Divider()
-                        .background(.ultraThinMaterial)
-                    
-                    Spacer()
-                    
-                    TextField("Username", text: $viewModel.userName)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                    
-                    NavigationLink(value: viewModel.avatarURL) {
-                        Button("Search") {
-                            viewModel.fetch()
-                        }
-                        .disabled(viewModel.userName.isEmpty)
-                    }
-                    
-                    Spacer()
+        NavigationView {
+            VStack {
+                Divider()
+                    .background(.ultraThinMaterial)
+                
+                Spacer()
+                
+                TextField("Username", text: $viewModel.userName)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                
+                NavigationLink(destination: GitHubDetailView(viewModel: GitHubDetailViewModelFactory.makeGitHubDatailViewModel()),
+                    isActive: $isNavigating
+                ) {
+                    EmptyView()
                 }
-                .navigationTitle("GitHub Viewer")
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarBackButtonHidden(true)
+                Button("Search") {
+                    viewModel.fetch()
+                    isNavigating.toggle()
+                }
+                .disabled(viewModel.userName.isEmpty)
+                
+                Spacer()
             }
+            .navigationTitle("GitHub Viewer")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
         }
     }
-    
-    #Preview {
-        HomeView(viewModel: HomeViewModelFactory.makeHomeViewModel())
-    }
+}
+
+#Preview {
+    HomeView(viewModel: HomeViewModelFactory.makeHomeViewModel())
+}

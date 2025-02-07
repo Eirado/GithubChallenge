@@ -6,7 +6,6 @@
 //
 
 public struct FetchReposUseCaseFactory {
-    
     public static func makeFetchReposUseCase(gitHubRepository: GitHubRepoRepositoryProtocol) -> FetchReposUseCaseProtocol {
         return FetchReposUseCase(gitHubRepository: gitHubRepository)
     }

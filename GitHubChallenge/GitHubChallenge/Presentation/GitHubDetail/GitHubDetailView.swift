@@ -10,7 +10,7 @@ struct GitHubDetailView: View {
     let viewModel: GitHubDetailViewModel
     @State private var headerHeight: CGFloat = .zero
     @State private var safeArea: EdgeInsets = .init()
-    
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         
         ZStack {
@@ -22,7 +22,7 @@ struct GitHubDetailView: View {
             }
             VStack {
                 HStack {
-                    CustomBackButton(action: { print(headerHeight, safeArea) })
+                    CustomBackButton(action: { presentationMode.wrappedValue.dismiss() })
                         .padding(.leading, 16)
                         .padding(.top, 5)
                     Spacer()
