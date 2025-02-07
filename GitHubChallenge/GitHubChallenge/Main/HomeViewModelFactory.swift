@@ -11,6 +11,8 @@ struct HomeViewModelFactory {
         let gitHubRepoRepository: GitHubRepoRepositoryProtocol = GitHubRepoRepositoryFactory.makePokemonRepository()
         let fetchReposUseCase: FetchReposUseCaseProtocol = FetchReposUseCaseFactory.makeFetchReposUseCase(gitHubRepository: gitHubRepoRepository)
         
-        return HomeViewModel(fetchReposUseCase: fetchReposUseCase)
+        let apiErrorHandler: ErrorHandlerProtocol = APIErrorHandlerFactory.makeAPIErrorHandler()
+        
+        return HomeViewModel(fetchReposUseCase: fetchReposUseCase, errorHandler: apiErrorHandler)
     }
 }

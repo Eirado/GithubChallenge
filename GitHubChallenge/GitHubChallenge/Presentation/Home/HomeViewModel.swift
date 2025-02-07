@@ -18,9 +18,11 @@ class HomeViewModel: ObservableObject {
     @Published var isLoading = false
    
     private let fetchReposUseCase: FetchReposUseCaseProtocol
+    private let errorHandler: ErrorHandlerProtocol
     
-    init(fetchReposUseCase: FetchReposUseCaseProtocol) {
+    init(fetchReposUseCase: FetchReposUseCaseProtocol, errorHandler: ErrorHandlerProtocol) {
         self.fetchReposUseCase = fetchReposUseCase
+        self.errorHandler = errorHandler
     }
     
     func fetchRepos(){
@@ -30,7 +32,8 @@ class HomeViewModel: ObservableObject {
                 self.gitHubRepos = try await fetchReposUseCase.executeRepository(userName: userName)
                 try retriveUserProfile()
             } catch {
-                
+                let errorMessage = errorHandler.handle(error: error)
+                print(errorMessage)
             }
             isLoading = false
         }
