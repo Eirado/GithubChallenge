@@ -27,7 +27,7 @@ class HomeViewModel: ObservableObject {
         isLoading = true
         Task { @MainActor in
             do {
-                self.gitHubRepos = try await fetchReposUseCase.executeRepository(userName: "Eirado")
+                self.gitHubRepos = try await fetchReposUseCase.executeRepository(userName: userName)
                 try retriveUserProfile()
             } catch {
                 
