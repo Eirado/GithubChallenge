@@ -26,17 +26,17 @@ class HomeViewModel: ObservableObject {
         Task { @MainActor in
             do {
                 self.gitHubRepos = try await fetchReposUseCase.executeRepository(userName: "Eirado")
-                 
-                guard let firstRepoOwner = gitHubRepos.first?.owner else {
-                    throw UserError.UserNotFound
-                }
-                
-                self.userName = firstRepoOwner.login
-                self.avatarURL = firstRepoOwner.avatarURL
-                
+                try retriveUserProfile()
             } catch {
                 
             }
         }
+    }
+    private func retriveUserProfile() throws {
+        guard let firstRepoOwner = gitHubRepos.first?.owner else {
+            throw UserError.UserNotFound
+        }
+        self.userName = firstRepoOwner.login
+        self.avatarURL = firstRepoOwner.avatarURL
     }
 }
