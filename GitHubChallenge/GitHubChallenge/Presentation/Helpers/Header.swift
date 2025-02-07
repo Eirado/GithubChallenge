@@ -10,27 +10,31 @@ import SwiftUI
 struct HeaderView: View {
     var image: Image
     var viewHeight: Double
+    var safeAreaTop: Double
     var userName: String
     var body: some View {
-        VStack{
+        VStack {
             ZStack{
-                
                 Rectangle()
                     .fill(.ultraThinMaterial)
-                    .frame(height: viewHeight * 0.35)
-               
+                    .frame(height: viewHeight + safeAreaTop)
+                    .overlay(
+                        Rectangle()
+                            .stroke(.gray, lineWidth: 1)
+                    )
+                
                 VStack(spacing: 15){
                     image
                         .resizable()
-                        .frame(width: (viewHeight * 0.4) / 2, height: (viewHeight * 0.4) / 2)
+                        .frame(width: viewHeight * 0.6, height: viewHeight * 0.6)
                         .clipShape(Circle())
                     Text(userName)
-                }
-            }
+                }.offset(y: 20)
+            }.ignoresSafeArea(.all, edges: .all)
         }
-        .ignoresSafeArea(.all, edges: .all)
         
     }
 }
+
 
 

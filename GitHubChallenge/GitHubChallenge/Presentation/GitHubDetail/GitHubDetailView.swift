@@ -8,36 +8,38 @@ import SwiftUI
 
 struct GitHubDetailView: View {
     let viewModel: GitHubDetailViewModel
-    @State private var viewHeight: CGFloat = .zero
+    @State private var headerHeight: CGFloat = .zero
+    @State private var safeArea: EdgeInsets = .init()
     
-
     var body: some View {
         
         ZStack {
             VStack {
-                
-                HeaderView(image: Image("rainbowlake"), viewHeight: viewHeight, userName: "Name")
-                CustomBackButton(action: { print("something") })
-                
+                HeaderView(image: Image("rainbowlake"), viewHeight: headerHeight, safeAreaTop: safeArea.top, userName: "Name")
                 List {
                     
                 }
-                
-                
-                
             }
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
-            
+            VStack {
+                HStack {
+                    CustomBackButton(action: { print(headerHeight, safeArea) })
+                        .padding(.leading, 16)
+                        .padding(.top, 5)
+                    Spacer()
+                }
+                Spacer()
+            }
         }.background {
             GeometryReader { geo in
                 Color.clear
                     .onAppear{
-                        viewHeight = geo.size.height
-                        
+                        headerHeight = (geo.size.height * 0.3)
+                        safeArea = geo.safeAreaInsets
                     }
             }.ignoresSafeArea(.all)
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
