@@ -6,7 +6,7 @@
 //
 
 public struct GitHubRepoRepositoryFactory {
-    public static func makePokemonRepository(apiService: APIServiceProtocol = APIServiceFactory.makeAPIService()) -> GitHubRepoRepositoryProtocol {
+    public static func makeGitHubRepoRepository(apiService: APIServiceProtocol = APIServiceFactory.makeAPIService()) -> GitHubRepoRepositoryProtocol {
         return GitHubRepoRepository(apiService: apiService)
     }
 }

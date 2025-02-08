@@ -6,7 +6,6 @@
 //
 struct GitHubDetailsViewModelFactory {
     static func makeHomeViewModel() -> GitHubDetailsViewModel {
-      
         return GitHubDetailsViewModel()
     }
 }
