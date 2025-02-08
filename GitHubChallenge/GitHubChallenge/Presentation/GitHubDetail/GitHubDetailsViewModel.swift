@@ -8,6 +8,4 @@
 import Foundation
 import SwiftUICore
 
-class GitHubDetailsViewModel: ObservableObject {
-    
-}
+class GitHubDetailsViewModel: ObservableObject {}

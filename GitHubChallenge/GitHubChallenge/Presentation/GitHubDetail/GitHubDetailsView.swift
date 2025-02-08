@@ -14,7 +14,6 @@ struct GitHubDetailsView: View {
     
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        
         GeometryReader { geometry in
             ZStack {
                 VStack {
@@ -25,7 +24,6 @@ struct GitHubDetailsView: View {
                             GitHubDetailListCell(repoName: repo.name, repoProgrammingLanguage: repo.language ?? "")
                         }
                     }.listStyle(.plain)
-                    
                 }.ignoresSafeArea(.all, edges: .top)
                 VStack {
                     HStack {

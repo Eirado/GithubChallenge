@@ -21,7 +21,6 @@ struct HeaderView: View {
     }
     
     var body: some View {
-        
         ZStack{
             Rectangle()
                 .fill(.ultraThinMaterial)
