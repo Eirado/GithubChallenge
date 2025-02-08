@@ -17,7 +17,7 @@ The app uses the GitHub API and implements an architecture based on Clean Archit
 
 ## Architecture Overview
 
-The app follows a Clean Architecture+MVVM (Model-View-ViewModel with additional layers to ensure proper separation of concerns, making the code modular, scalable, and easy to test.
+The app follows a Clean Architecture+MVVM (Model-View-ViewModel with additional layers to ensure proper separation of concerns.
 
 ## Presentation Layer
 Responsible for everything the user interacts with:
