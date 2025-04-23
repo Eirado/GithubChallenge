@@ -6,7 +6,7 @@
 //
 
 public struct APIServiceFactory {
-    public static func makeAPIService() -> APIServiceProtocol {
-        return APIService()
+    public static func makeAPIService() -> NetworkManagerProtocol {
+        return NetworkManager()
     }
 }

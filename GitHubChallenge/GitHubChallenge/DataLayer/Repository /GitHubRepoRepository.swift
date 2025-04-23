@@ -11,14 +11,14 @@ public protocol GitHubRepoRepositoryProtocol {
 
 public struct GitHubRepoRepository: GitHubRepoRepositoryProtocol {
     
-    private let apiService: APIServiceProtocol
+    private let apiService: NetworkManagerProtocol
 
-    init(apiService: APIServiceProtocol = APIServiceFactory.makeAPIService()) {
+    init(apiService: NetworkManagerProtocol = APIServiceFactory.makeAPIService()) {
         self.apiService = apiService
     }
 
     public func fetch(userName: String) async throws  -> [GitHubRepo] {
-        let object: [GitHubRepo] =  try await apiService.request(.getGitHubRepos(userName: userName))
+        let object: [GitHubRepo] =  try await apiService.request(.getRepos(userName: userName))
         return object
     }
 }

@@ -5,41 +5,38 @@
 //  Created by Gabriel Amaral on 07/02/25.
 //
 
+
+
 import Foundation
 
 public enum APITarget {
-    case getGitHubRepos(userName: String)
+    case getRepos(userName: String)
     
-    var baseURL: URL {
+    private var baseURL: URL {
         return URL(string: "https://api.github.com")!
     }
 
-    var path: String {
+    private var path: String {
         switch self {
-        case .getGitHubRepos(let userName):
+        case .getRepos(let userName):
             return "/users/\(userName)/repos"
         }
     }
 
     var method: String {
-        switch self {
-        case .getGitHubRepos:
-            return "GET"
-        }
+        return "GET"
     }
 
-    var task: [String: Any] {
-        switch self {
-        case .getGitHubRepos:
-            return [:] 
-        }
+    var parameters: [String: Any] {
+        return [:]
     }
 
     var headers: [String: String] {
         return ["Content-Type": "application/json"]
     }
 
-    var url: URL {
+    public var url: URL {
         return baseURL.appendingPathComponent(path)
     }
 }
+

@@ -6,27 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXContainerItemProxy section */
-		383768792D55378F005D4A94 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3837685F2D55378E005D4A94 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 383768662D55378E005D4A94;
-			remoteInfo = GitHubChallenge;
-		};
-		383768832D55378F005D4A94 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3837685F2D55378E005D4A94 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 383768662D55378E005D4A94;
-			remoteInfo = GitHubChallenge;
-		};
-/* End PBXContainerItemProxy section */
+/* Begin PBXBuildFile section */
+		383372AE2DB9ABA6009A61F4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 383372AD2DB9ABA6009A61F4 /* Alamofire */; };
+		383372B02DB9ABA6009A61F4 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 383372AF2DB9ABA6009A61F4 /* AlamofireDynamic */; };
+/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		383768672D55378E005D4A94 /* GitHubChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		383768782D55378F005D4A94 /* GitHubChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		383768822D55378F005D4A94 /* GitHubChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,20 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		383768752D55378F005D4A94 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3837687F2D55378F005D4A94 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				383372AE2DB9ABA6009A61F4 /* Alamofire in Frameworks */,
+				383372B02DB9ABA6009A61F4 /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,8 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				383768672D55378E005D4A94 /* GitHubChallenge.app */,
-				383768782D55378F005D4A94 /* GitHubChallengeTests.xctest */,
-				383768822D55378F005D4A94 /* GitHubChallengeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,56 +84,12 @@
 			);
 			name = GitHubChallenge;
 			packageProductDependencies = (
+				383372AD2DB9ABA6009A61F4 /* Alamofire */,
+				383372AF2DB9ABA6009A61F4 /* AlamofireDynamic */,
 			);
 			productName = GitHubChallenge;
 			productReference = 383768672D55378E005D4A94 /* GitHubChallenge.app */;
 			productType = "com.apple.product-type.application";
-		};
-		383768772D55378F005D4A94 /* GitHubChallengeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3837688F2D55378F005D4A94 /* Build configuration list for PBXNativeTarget "GitHubChallengeTests" */;
-			buildPhases = (
-				383768742D55378F005D4A94 /* Sources */,
-				383768752D55378F005D4A94 /* Frameworks */,
-				383768762D55378F005D4A94 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3837687A2D55378F005D4A94 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				3837687B2D55378F005D4A94 /* GitHubChallengeTests */,
-			);
-			name = GitHubChallengeTests;
-			packageProductDependencies = (
-			);
-			productName = GitHubChallengeTests;
-			productReference = 383768782D55378F005D4A94 /* GitHubChallengeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		383768812D55378F005D4A94 /* GitHubChallengeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 383768922D55378F005D4A94 /* Build configuration list for PBXNativeTarget "GitHubChallengeUITests" */;
-			buildPhases = (
-				3837687E2D55378F005D4A94 /* Sources */,
-				3837687F2D55378F005D4A94 /* Frameworks */,
-				383768802D55378F005D4A94 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				383768842D55378F005D4A94 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				383768852D55378F005D4A94 /* GitHubChallengeUITests */,
-			);
-			name = GitHubChallengeUITests;
-			packageProductDependencies = (
-			);
-			productName = GitHubChallengeUITests;
-			productReference = 383768822D55378F005D4A94 /* GitHubChallengeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -176,14 +104,6 @@
 					383768662D55378E005D4A94 = {
 						CreatedOnToolsVersion = 16.2;
 					};
-					383768772D55378F005D4A94 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 383768662D55378E005D4A94;
-					};
-					383768812D55378F005D4A94 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 383768662D55378E005D4A94;
-					};
 				};
 			};
 			buildConfigurationList = 383768622D55378E005D4A94 /* Build configuration list for PBXProject "GitHubChallenge" */;
@@ -195,34 +115,21 @@
 			);
 			mainGroup = 3837685E2D55378D005D4A94;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				383372AC2DB9ABA6009A61F4 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 383768682D55378E005D4A94 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				383768662D55378E005D4A94 /* GitHubChallenge */,
-				383768772D55378F005D4A94 /* GitHubChallengeTests */,
-				383768812D55378F005D4A94 /* GitHubChallengeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		383768652D55378E005D4A94 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		383768762D55378F005D4A94 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		383768802D55378F005D4A94 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -239,34 +146,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		383768742D55378F005D4A94 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3837687E2D55378F005D4A94 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3837687A2D55378F005D4A94 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 383768662D55378E005D4A94 /* GitHubChallenge */;
-			targetProxy = 383768792D55378F005D4A94 /* PBXContainerItemProxy */;
-		};
-		383768842D55378F005D4A94 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 383768662D55378E005D4A94 /* GitHubChallenge */;
-			targetProxy = 383768832D55378F005D4A94 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3837688A2D55378F005D4A94 /* Debug */ = {
@@ -413,10 +293,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Gabriel.GitHubChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
@@ -451,96 +332,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Gabriel.GitHubChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Release;
-		};
-		383768902D55378F005D4A94 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Gabriel.GitHubChallengeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHubChallenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GitHubChallenge";
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		383768912D55378F005D4A94 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Gabriel.GitHubChallengeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHubChallenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GitHubChallenge";
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Release;
-		};
-		383768932D55378F005D4A94 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Gabriel.GitHubChallengeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = GitHubChallenge;
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		383768942D55378F005D4A94 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Gabriel.GitHubChallengeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = GitHubChallenge;
+				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
@@ -566,25 +362,31 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3837688F2D55378F005D4A94 /* Build configuration list for PBXNativeTarget "GitHubChallengeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				383768902D55378F005D4A94 /* Debug */,
-				383768912D55378F005D4A94 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		383768922D55378F005D4A94 /* Build configuration list for PBXNativeTarget "GitHubChallengeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				383768932D55378F005D4A94 /* Debug */,
-				383768942D55378F005D4A94 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		383372AC2DB9ABA6009A61F4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		383372AD2DB9ABA6009A61F4 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 383372AC2DB9ABA6009A61F4 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		383372AF2DB9ABA6009A61F4 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 383372AC2DB9ABA6009A61F4 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3837685F2D55378E005D4A94 /* Project object */;
 }
