@@ -7,9 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		383372AE2DB9ABA6009A61F4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 383372AD2DB9ABA6009A61F4 /* Alamofire */; };
-		383372B02DB9ABA6009A61F4 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 383372AF2DB9ABA6009A61F4 /* AlamofireDynamic */; };
+		384543112DB9AFD8009470F2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 384543102DB9AFD8009470F2 /* Alamofire */; };
+		384543132DB9AFD8009470F2 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 384543122DB9AFD8009470F2 /* AlamofireDynamic */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		384E2CBE2DB9AEE40088C906 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		383768672D55378E005D4A94 /* GitHubChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,8 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				383372AE2DB9ABA6009A61F4 /* Alamofire in Frameworks */,
-				383372B02DB9ABA6009A61F4 /* AlamofireDynamic in Frameworks */,
+				384543112DB9AFD8009470F2 /* Alamofire in Frameworks */,
+				384543132DB9AFD8009470F2 /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +87,7 @@
 				383768632D55378E005D4A94 /* Sources */,
 				383768642D55378E005D4A94 /* Frameworks */,
 				383768652D55378E005D4A94 /* Resources */,
+				384E2CBE2DB9AEE40088C906 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -84,8 +98,8 @@
 			);
 			name = GitHubChallenge;
 			packageProductDependencies = (
-				383372AD2DB9ABA6009A61F4 /* Alamofire */,
-				383372AF2DB9ABA6009A61F4 /* AlamofireDynamic */,
+				384543102DB9AFD8009470F2 /* Alamofire */,
+				384543122DB9AFD8009470F2 /* AlamofireDynamic */,
 			);
 			productName = GitHubChallenge;
 			productReference = 383768672D55378E005D4A94 /* GitHubChallenge.app */;
@@ -116,7 +130,7 @@
 			mainGroup = 3837685E2D55378D005D4A94;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				383372AC2DB9ABA6009A61F4 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3845430F2DB9AFD8009470F2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 383768682D55378E005D4A94 /* Products */;
@@ -365,7 +379,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		383372AC2DB9ABA6009A61F4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		3845430F2DB9AFD8009470F2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -376,14 +390,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		383372AD2DB9ABA6009A61F4 /* Alamofire */ = {
+		384543102DB9AFD8009470F2 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 383372AC2DB9ABA6009A61F4 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 3845430F2DB9AFD8009470F2 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		383372AF2DB9ABA6009A61F4 /* AlamofireDynamic */ = {
+		384543122DB9AFD8009470F2 /* AlamofireDynamic */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 383372AC2DB9ABA6009A61F4 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 3845430F2DB9AFD8009470F2 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
