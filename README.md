@@ -1,4 +1,4 @@
-# Github Challenge
+# This project is just for test purposes.
 
 ## Overview
 
