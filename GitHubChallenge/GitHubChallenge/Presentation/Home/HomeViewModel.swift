@@ -30,7 +30,7 @@ class HomeViewModel: ObservableObject {
         self.errorHandler = errorHandler
     }
     
-    func fetchRepos(){
+    func fetchRepos() {
         Task { @MainActor in
             isFetchFinished = false
             do {

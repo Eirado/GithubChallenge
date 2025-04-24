@@ -6,7 +6,8 @@
 //
 
 public struct GitHubRepoRepositoryFactory {
-    public static func makeGitHubRepoRepository(apiService: NetworkManagerProtocol = APIServiceFactory.makeAPIService()) -> GitHubRepoRepositoryProtocol {
+    public static func makeGitHubRepoRepository(
+        apiService: NetworkManagerProtocol) -> GitHubRepoRepositoryProtocol {
         return GitHubRepoRepository(apiService: apiService)
     }
 }

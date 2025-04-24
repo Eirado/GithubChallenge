@@ -13,7 +13,7 @@ public struct GitHubRepoRepository: GitHubRepoRepositoryProtocol {
     
     private let apiService: NetworkManagerProtocol
 
-    init(apiService: NetworkManagerProtocol = APIServiceFactory.makeAPIService()) {
+    init(apiService: NetworkManagerProtocol) {
         self.apiService = apiService
     }
 

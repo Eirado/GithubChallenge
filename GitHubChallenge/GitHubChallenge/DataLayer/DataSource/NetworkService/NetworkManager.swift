@@ -5,15 +5,37 @@
 //  Created by Gabriel Amaral on 07/02/25.
 
 import Foundation
+import Alamofire
 
 public protocol NetworkSessionProtocol {
     func performRequest(with requestURL: URLRequest) async throws -> (Data, URLResponse)
 }
 
+// Native implementation
 extension URLSession: NetworkSessionProtocol {
     public func performRequest(with requestURL: URLRequest) async throws -> (Data, URLResponse) {
         let (data, response) = try await self.data(for: requestURL)
         return (data, response)
+    }
+}
+
+// Alamofire implementation
+extension Session: NetworkSessionProtocol {
+    public func performRequest(with requestURL: URLRequest) async throws -> (Data, URLResponse) {
+        return try await withCheckedThrowingContinuation { continuation in
+            self.request(requestURL).validate().responseData { response in
+                switch response.result {
+                case .success(let data):
+                    if let urlResponse = response.response {
+                        continuation.resume(returning: (data, urlResponse))
+                    } else {
+                        continuation.resume(throwing: NetworkError.unknown)
+                    }
+                case .failure:
+                    continuation.resume(throwing: NetworkError.unknown)
+                }
+            }
+        }
     }
 }
 
@@ -25,7 +47,7 @@ final class NetworkManager: NetworkManagerProtocol {
     
     private let session: NetworkSessionProtocol
     
-    init(session: NetworkSessionProtocol = URLSession.shared) {
+    init(session: NetworkSessionProtocol) {
         self.session = session
     }
     

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		384543112DB9AFD8009470F2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 384543102DB9AFD8009470F2 /* Alamofire */; };
-		384543132DB9AFD8009470F2 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 384543122DB9AFD8009470F2 /* AlamofireDynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,7 +51,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				384543112DB9AFD8009470F2 /* Alamofire in Frameworks */,
-				384543132DB9AFD8009470F2 /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +97,6 @@
 			name = GitHubChallenge;
 			packageProductDependencies = (
 				384543102DB9AFD8009470F2 /* Alamofire */,
-				384543122DB9AFD8009470F2 /* AlamofireDynamic */,
 			);
 			productName = GitHubChallenge;
 			productReference = 383768672D55378E005D4A94 /* GitHubChallenge.app */;
@@ -394,11 +391,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3845430F2DB9AFD8009470F2 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		384543122DB9AFD8009470F2 /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3845430F2DB9AFD8009470F2 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
