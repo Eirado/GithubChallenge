@@ -19,6 +19,7 @@ enum NetworkError: Error {
     case invalidParameters
 }
 
+// TODO add more LocalizedError 
 extension NetworkError: LocalizedError {
     
     var errorTitle: String? {

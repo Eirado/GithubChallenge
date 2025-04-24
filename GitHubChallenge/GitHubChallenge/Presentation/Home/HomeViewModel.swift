@@ -23,11 +23,9 @@ class HomeViewModel: ObservableObject {
     @Published var isFetchFinished: Bool = false
     
     private let fetchReposUseCase: FetchReposUseCaseProtocol
-    private let errorHandler: ErrorHandlerProtocol
     
-    init(fetchReposUseCase: FetchReposUseCaseProtocol, errorHandler: ErrorHandlerProtocol) {
+    init(fetchReposUseCase: FetchReposUseCaseProtocol) {
         self.fetchReposUseCase = fetchReposUseCase
-        self.errorHandler = errorHandler
     }
     
     func fetchRepos() {
@@ -38,7 +36,7 @@ class HomeViewModel: ObservableObject {
                 try retriveUserProfile()
                 isFetchFinished = true
             } catch {
-                let errorMessage = errorHandler.handle(error: error)
+                let errorMessage = ""
                 isFetchFinished = false
                 showAlert(errorMessage: errorMessage)
             }

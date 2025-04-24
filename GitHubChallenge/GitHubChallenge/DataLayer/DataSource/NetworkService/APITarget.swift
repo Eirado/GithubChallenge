@@ -9,6 +9,9 @@
 
 import Foundation
 
+// TODO implement OCP here
+// TODO pass information safely by parameters
+
 public enum APITarget {
     case getRepos(userName: String)
     

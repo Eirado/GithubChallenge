@@ -11,7 +11,6 @@ public protocol NetworkSessionProtocol {
     func performRequest(with requestURL: URLRequest) async throws -> (Data, URLResponse)
 }
 
-// Native implementation
 extension URLSession: NetworkSessionProtocol {
     public func performRequest(with requestURL: URLRequest) async throws -> (Data, URLResponse) {
         let (data, response) = try await self.data(for: requestURL)
@@ -19,7 +18,6 @@ extension URLSession: NetworkSessionProtocol {
     }
 }
 
-// Alamofire implementation
 extension Session: NetworkSessionProtocol {
     public func performRequest(with requestURL: URLRequest) async throws -> (Data, URLResponse) {
         return try await withCheckedThrowingContinuation { continuation in
@@ -52,11 +50,10 @@ final class NetworkManager: NetworkManagerProtocol {
     }
     
     public func request<T: Decodable>(_ target: APITarget) async throws -> T {
-        
         var requestURL = URLRequest(url: target.url)
         requestURL.httpMethod = target.method
         requestURL.allHTTPHeaderFields = target.headers
-        
+
         if target.method == "POST" {
             do {
                 requestURL.httpBody = try JSONSerialization.data(
